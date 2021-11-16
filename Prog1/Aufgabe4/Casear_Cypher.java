@@ -4,16 +4,20 @@ import java.util.Arrays;
 
 public class Casear_Cypher {
 
-    public static int SHIFT = 5;
+    public static int SHIFT = 13;
     public static void main(String[] args) {
-        String s = "What is this shit like really lol!";
+        String s = "Uheen qre Pbqr shaxgvbavreg";
         char[] plainText = toCharacterArray(s);
         System.out.println("Plaintext: ");
         printArray(plainText);
-        System.out.println("Encoded Array: ");
-        printArray(encodeArray(plainText));
-        // System.out.println("Decoded Array: ");
-        // printArray();
+
+       /*  System.out.println("Encoded Array: ");
+        char[] encodedText = encodeArray(plainText);
+        printArray(encodedText); */
+
+        System.out.println("Decoded Array: ");
+        char[] decodedText = decodeArray(plainText);
+        printArray(decodedText);
         
     }
     public static char[] toCharacterArray( String s ) {
@@ -61,6 +65,39 @@ public class Casear_Cypher {
         for(int i = 0; i < input.length; i++){
             char c = input[i];
             output[i] = encodeCharacter(c, SHIFT);
+        }
+        return output;
+    }
+
+    public static char decodeCharacter(char c, int shift){
+        int cI = (int)c;
+
+        if (cI <= 90 && cI >= 65 + shift){
+            cI = cI - shift;
+            return c = (char)cI;
+        }
+        if (cI <= 65 + shift && cI >= 65){
+            cI = cI - shift + 26;
+            return c = (char)cI;
+        }
+        if (cI <= 122 && cI >= 97 + shift){
+            cI = cI - shift;
+            return c = (char)cI;
+        }
+        if (cI <= 97 + shift && cI >= 97){
+            cI = cI - shift + 26;
+            return c = (char)cI;
+        } else{
+            cI = 32;
+            return c = (char)cI;
+        }
+    }
+
+    public static char[] decodeArray (char[] input){
+        char[] output = new char[input.length];
+        for(int i = 0; i < input.length; i++){
+            char c = input[i];
+            output[i] = decodeCharacter(c, SHIFT);
         }
         return output;
     }
