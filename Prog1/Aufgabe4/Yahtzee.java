@@ -14,7 +14,7 @@ public class Yahtzee {
             }
             counter++;
         }
-        System.out.println("Number of Attempts needed: " + counter);
+        System.out.println("Number of Attempts needed: " + counter + 1);
     }
 
     public static int getSingleDiceRoll() {
