@@ -8,16 +8,23 @@ public class Palindrom {
 
         char[] someText = getArrayFromConsole();
         System.out.println(Arrays.toString(someText));
-        boolean isPalindrome = isPalindromIterative(someText);
+        boolean isPalindromeIt = isPalindromIterative(someText);
+        boolean isPalindromeRec = isPalindromIterative(someText);
+        resultOutput(isPalindromeIt);
+        resultOutput(isPalindromeRec);
 
-        if(isPalindrome)
+
+    
+    }
+
+    public static void resultOutput(boolean input){
+        if(input)
             System.out.println("Given input is a Palindrom!");
         else{
             System.out.println("Given input is not a Palindrom!");
         }
-
-    
     }
+
     public static char[] getArrayFromConsole() throws IOException{
 
         char[] input = new char[50];
@@ -42,6 +49,9 @@ public class Palindrom {
     public static boolean isPalindromIterative(char[] input){
         int len = input.length;
         int j = len - 1;
+
+        if(len == 1)
+        return true;
         
         for (int i = 0; i < len; i++, j--){
             if(input[i] == input[j]){
@@ -53,6 +63,28 @@ public class Palindrom {
             break;
         }
         return false;
+    }
+    public static boolean isPalindromeRecursion(char[] input){
+        if(input.length == 1)
+        return true;
+
+        int start = 0;
+        int end = input.length - 1;
+
+        if(end - start == 1 || start == end){
+            return true;
+
+        } else {
+
+            if(input[start] == input[end]){
+                start++;
+                end--;
+                return isPalindromeRecursion(input);
+            } else{
+                return false;
+            }
+        }
+        
     }
 
 }
