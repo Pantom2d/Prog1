@@ -12,9 +12,6 @@ public class Palindrom {
         boolean isPalindromeRec = isPalindromIterative(someText);
         resultOutput(isPalindromeIt);
         resultOutput(isPalindromeRec);
-
-
-    
     }
 
     public static void resultOutput(boolean input){
@@ -46,7 +43,9 @@ public class Palindrom {
 
         return output;
     }
+    
     public static boolean isPalindromIterative(char[] input){
+
         int len = input.length;
         int j = len - 1;
 
@@ -64,7 +63,9 @@ public class Palindrom {
         }
         return false;
     }
+
     public static boolean isPalindromeRecursion(char[] input){
+
         if(input.length == 1)
         return true;
 
