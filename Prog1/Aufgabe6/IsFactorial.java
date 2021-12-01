@@ -7,7 +7,7 @@ public class IsFactorial {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter long number to check: ");
         long input = scan.nextLong();
-        long outputIt = isFactIt(input);
+        // long outputIt = isFactIt(input);
         long outputRec = isFactRec(input);
         
         if(outputRec == -1){
