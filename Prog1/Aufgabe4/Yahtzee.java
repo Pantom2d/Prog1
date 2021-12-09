@@ -36,7 +36,6 @@ public class Yahtzee {
     }
 
     public static boolean isSmallStraight(int[] diceRolls) {
-
         return (diceRolls[0] == diceRolls[1]) && (diceRolls[0] == diceRolls[2]) && (diceRolls[0] == diceRolls[3]) ||
                 ((diceRolls[1] == diceRolls[2]) && (diceRolls[1] == diceRolls[3]) && (diceRolls[1] == diceRolls[4]));
     }
